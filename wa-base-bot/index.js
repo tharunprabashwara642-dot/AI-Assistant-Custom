@@ -96,6 +96,7 @@ const clientstart = async() => {
         const phoneNumber = envNumber && envNumber.trim()
             ? envNumber.trim()
             : await question('enter your WhatsApp number, starting with 91:\nnumber WhatsApp: ');
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         const code = await sock.requestPairingCode(phoneNumber);
         console.log(chalk.green(`your pairing code: ` + chalk.bold.green(code)));
     }
